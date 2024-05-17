@@ -1,0 +1,22 @@
+﻿@model lab_1_asp_net.Models.Order
+
+<h2 class="my-4">Видалення замовлення</h2>
+
+<p>Ви впевнені, що хочете видалити це замовлення?</p>
+
+<div>
+    <h4>Інформація про замовлення:</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Назва фільму:</dt>
+        <dd class="col-sm-10">@Model.MovieName</dd>
+    </dl>
+
+    <form asp-action="DeleteOrder" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <input type="submit" value="Підтвердити видалення" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-secondary">Скасувати</a>
+        </div>
+    </form>
+</div>
