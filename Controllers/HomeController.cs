@@ -1,21 +1,26 @@
 using lab_1_asp_net.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using lab_1_asp_net.Resources;
+using Microsoft.Extensions.Localization;
 
 namespace lab_1_asp_net.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IStringLocalizer<Texts> _localizer;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IStringLocalizer<Texts> localizer)
         {
             _logger = logger;
+            _localizer = localizer;
         }
 
         public IActionResult Index()
         {
             var users = DataEmulator.Users;
+            ViewBag.Користувачі = _localizer["Користувачі"].Value;
             return View(users);
         }
 
@@ -270,6 +275,8 @@ namespace lab_1_asp_net.Controllers
                 return NotFound();
             }
         }
+
+
 
 
 

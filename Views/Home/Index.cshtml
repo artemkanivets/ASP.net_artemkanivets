@@ -1,20 +1,22 @@
 ﻿@model IEnumerable<lab_1_asp_net.Models.User>
+@using lab_1_asp_net.Resources
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<Texts> Localizer
 
-<h2 class="my-4">Користувачі</h2>
+<h2 class="my-4">@Localizer["Користувачі"]</h2>
 
 <p>
-    <a class="btn btn-primary mb-3" asp-action="CreateUser">Створити нового користувача</a>
+    <a class="btn btn-primary mb-3" asp-action="CreateUser">@Localizer["Створити нового покупця"]</a>
 </p>
 
 <table class="table table-striped table-bordered">
     <thead class="thead-dark">
         <tr>
             <th>ID</th>
-            <th>Повне ім'я</th>
-            <th>Email</th>
-            <th>Номер телефону</th>
-            <th>Адреса</th>
-            <th>Дії</th>
+            <th>@Localizer["Повне ім'я"]</th>
+            <th>@Localizer["Email"]</th>
+            <th>@Localizer["Номер телефону"]</th>
+            <th>@Localizer["Адреса"]</th>
         </tr>
     </thead>
     <tbody>
@@ -27,8 +29,8 @@
                 <td>@user.PhoneNumber</td>
                 <td>@user.Address</td>
                 <td>
-                    <a class="btn btn-sm btn-warning" asp-action="EditUser" asp-route-id="@user.Id">Редагувати</a>
-                    <a class="btn btn-sm btn-danger" asp-action="DeleteUser" asp-route-id="@user.Id">Видалити</a>
+                    <a class="btn btn-sm btn-warning" asp-action="EditUser" asp-route-id="@user.Id">@Localizer["Редагувати"]</a>
+                    <a class="btn btn-sm btn-danger" asp-action="DeleteUser" asp-route-id="@user.Id">@Localizer["Видалити"]</a>
                 </td>
             </tr>
         }

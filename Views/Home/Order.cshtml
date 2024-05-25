@@ -1,18 +1,21 @@
 ﻿@model IEnumerable<lab_1_asp_net.Models.Order>
+@using lab_1_asp_net.Resources
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<Texts> Localizer
 
-<h2>Замовлення</h2>
+<h2>@Localizer["Замовлення"]</h2>
 
 <p>
-    <a asp-action="CreateOrder">Додати нове замовлення</a>
+    <a asp-action="CreateOrder">@Localizer["Додати нове замовлення"]</a>
 </p>
 
 <table class="table">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Замовник</th>
-            <th>Назва фільму</th>
-            <th>Загальна вартість</th>
+            <th>@Localizer["Замовник"]</th>
+            <th>@Localizer["Назва фільму"]</th>
+            <th>@Localizer["Загальна вартість"]</th>
             <th></th>
         </tr>
     </thead>
@@ -25,8 +28,8 @@
                 <td>@order.MovieName</td>
                 <td>@order.TotalPrice</td>
                 <td>
-                    <a asp-action="EditOrder" asp-route-id="@order.Id">Редагувати</a> |
-                    <a asp-action="DeleteOrder" asp-route-id="@order.Id">Видалити</a>
+                    <a asp-action="EditOrder" asp-route-id="@order.Id">@Localizer["Редагувати"]</a> |
+                    <a asp-action="DeleteOrder" asp-route-id="@order.Id">@Localizer["Видалити"]</a>
                 </td>
             </tr>
         }

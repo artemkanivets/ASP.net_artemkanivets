@@ -1,6 +1,9 @@
 ﻿@model lab_1_asp_net.Models.Movie
+@using lab_1_asp_net.Resources
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<Texts> Localizer
 
-<h2>Створення нового фільму</h2>
+<h2>@Localizer["Створення нового фільму"]</h2>
 
 <form asp-action="CreateMovie">
     <div class="form-group">
@@ -25,6 +28,6 @@
     </div>
     <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
     <div class="form-group">
-        <input type="submit" value="Створити" class="btn btn-primary" />
+        <input type="submit" value=@Localizer["Створити"] class="btn btn-primary" />
     </div>
 </form>
